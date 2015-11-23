@@ -400,6 +400,8 @@ func AddTrip(rw http.ResponseWriter, req *http.Request, p httprouter.Params) {
 		totalDistance += mindistance
 		delete(locations, startID)
 		startID = nextID
+		startLat = locations[startID].Coordinate.Lat
+		startLng = locations[startID].Coordinate.Lng
 		tripRequest.LocationIds[locationOrder] = nextID
 		locationOrder++
 		minPrice = 1000000.0
